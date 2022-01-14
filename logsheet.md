@@ -19,4 +19,5 @@
 ## Day 2
 
 - [x] Learn About Different Request Methods
-- [x] Send JSON data as Body in POST Request
+- [x] Send JSON data as POST Request Body
+- [x] Send Body using Pydantic Model
