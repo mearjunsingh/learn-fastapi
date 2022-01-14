@@ -19,6 +19,8 @@
 ## Day 2
 
 - [x] Learn About Different Request Methods
-- [x] Send JSON data as POST Request Body
-- [x] Send Body using Pydantic Model
-- [x] Default and Optional values for pydantic model fields
+- [x] Send JSON Data as POST Request Body
+- [x] Send Body Using Pydantic Model
+- [x] Default and Optional Values for Pydantic Model Fields
+- [x] Learn URL Naming Conventions
+- [x] Simulate CRUD Operations
