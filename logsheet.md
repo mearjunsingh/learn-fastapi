@@ -18,4 +18,5 @@
 
 ## Day 2
 
-- [x] Different Request Methods
+- [x] Learn About Different Request Methods
+- [x] Send JSON data as Body in POST Request
