@@ -1,5 +1,6 @@
-from fastapi import FastAPI, Body
+from fastapi import FastAPI
 from pydantic import BaseModel
+from typing import Optional
 
 
 app = FastAPI()
@@ -8,6 +9,8 @@ app = FastAPI()
 class Post(BaseModel):
     title: str
     content: str
+    published: bool = True
+    rating: Optional[int] = None
 
 
 @app.get('/')
@@ -22,7 +25,7 @@ def posts():
 
 @app.post('/create-post')
 def create_post(data: Post):
-    return {'message': f'{data.title} - {data.content}'}
+    return {'message': f'{data.title} - {data.content} - {data.published} - {data.rating}'}
 
 
 @app.patch('/update-post')
@@ -32,4 +35,4 @@ def update_post():
 
 @app.delete('/delete-post')
 def delete_post():
-    return {'message' : 'post deleted'}
+    return {'message': 'post deleted'}

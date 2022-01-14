@@ -21,3 +21,4 @@
 - [x] Learn About Different Request Methods
 - [x] Send JSON data as POST Request Body
 - [x] Send Body using Pydantic Model
+- [x] Default and Optional values for pydantic model fields
