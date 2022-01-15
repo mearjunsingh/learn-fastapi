@@ -3,6 +3,7 @@
 - [Learn FastAPI Logsheet](#learn-fastapi-logsheet)
   - [Day 1](#day-1)
   - [Day 2](#day-2)
+  - [Day 3](#day-3)
 
 ---
 
@@ -24,3 +25,11 @@
 - [x] Default and Optional Values for Pydantic Model Fields
 - [x] Learn URL Naming Conventions
 - [x] Simulate CRUD Operations
+
+---
+
+## Day 3
+
+- [x] Learn Response Status Codes
+- [x] Responding Status Codes Using `Response.status_code`
+- [x] Responding Status Codes Using `HTTPException`

@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Response, status, HTTPException
 from pydantic import BaseModel
 from typing import Optional
 
@@ -48,7 +48,7 @@ def list_posts():
     return {'data': posts_list}
 
 
-@app.post('/posts')
+@app.post('/posts', status_code=status.HTTP_201_CREATED)
 def create_post(data: Post):
     data_dict = data.dict()
     data_dict['id'] = len(posts_list) + 1
@@ -57,15 +57,16 @@ def create_post(data: Post):
 
 
 @app.get('/posts/{id}')
-def read_post(id: int):
+def read_post(id: int, response: Response):
     try:
         post = posts_list[validate_id(id)]
         return {'data': post}
     except:
-        return {'data': None}
+        response.status_code = status.HTTP_404_NOT_FOUND
+        return {'detail': f'post with id {id} not found'}
 
 
-@app.put('/posts/{id}')
+@app.put('/posts/{id}', status_code=status.HTTP_202_ACCEPTED)
 def update_post(id: int, data: Post):
     try:
         data_dict = data.dict()
@@ -73,13 +74,13 @@ def update_post(id: int, data: Post):
         data_dict['id'] = id
         return {'data': data_dict}
     except:
-        return {'data': None}
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f'post with id {id} not found')
 
 
-@app.delete('/posts/{id}')
+@app.delete('/posts/{id}', status_code=status.HTTP_204_NO_CONTENT)
 def delete_post(id: int):
     try:
         posts_list[(validate_id(id))] = None
         return {'data': f'post with id {id} deleted'}
     except:
-        return {'data': None}
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f'post with id {id} not found')
