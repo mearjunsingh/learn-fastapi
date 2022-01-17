@@ -52,7 +52,7 @@ Part of a **100 days of code** challenge. Open [Logsheet](logsheet.md) to see th
 
 6. Now we are ready to run the project,
     ```bash
-    uvicorn main:app --reload
+    uvicorn app.main:app --reload
     ```
 
 7. Then locate http://127.0.0.1:8000/docs in browser for **SwaggerAPI** documentation or http://127.0.0.1:8000/redoc for **ReDoc** documentation.

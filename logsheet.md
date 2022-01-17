@@ -33,3 +33,5 @@
 - [x] Learn Response Status Codes
 - [x] Responding Status Codes Using `Response.status_code`
 - [x] Responding Status Codes Using `HTTPException`
+- [x] Learn to use Documentation
+- [x] Refactor Codes as a Package
