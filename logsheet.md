@@ -45,3 +45,4 @@
 - [x] Learn About ORM in Detail
 - [x] Install SQLAlchemy
 - [x] Create a Database Connection
+- [x] Create a Model and Execute it in Database

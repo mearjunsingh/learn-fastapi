@@ -1,9 +1,22 @@
-from fastapi import FastAPI, Response, status, HTTPException
+from fastapi import FastAPI, Response, status, HTTPException, Depends
 from pydantic import BaseModel
+from sqlalchemy.orm import Session
 from typing import Optional
+
+from . import models
+from .database import engine, sessionLocal
 
 
 app = FastAPI()
+models.Base.metadata.create_all(bind=engine)
+
+
+def get_db():
+    db = sessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
 
 
 class Post(BaseModel):
@@ -84,3 +97,8 @@ def delete_post(id: int):
         return {'data': f'post with id {id} deleted'}
     except:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f'post with id {id} not found')
+
+
+@app.get('/sql')
+def sql(db: Session = Depends(get_db)):
+    return {'status': 'success'}
