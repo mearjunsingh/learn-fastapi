@@ -4,19 +4,11 @@ from sqlalchemy.orm import Session
 from typing import Optional
 
 from . import models
-from .database import engine, sessionLocal
+from .database import engine, get_db
 
 
 app = FastAPI()
 models.Base.metadata.create_all(bind=engine)
-
-
-def get_db():
-    db = sessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
 
 
 class Post(BaseModel):
