@@ -4,6 +4,7 @@
   - [Day 1](#day-1)
   - [Day 2](#day-2)
   - [Day 3](#day-3)
+  - [Day 4](#day-4)
 
 ---
 
@@ -35,3 +36,12 @@
 - [x] Responding Status Codes Using `HTTPException`
 - [x] Learn to use Documentation
 - [x] Refactor Codes as a Package
+
+---
+
+## Day 4
+
+- [x] Learn About Databases in Detail
+- [x] Learn About ORM in Detail
+- [x] Install SQLAlchemy
+- [x] Create a Database Connection
