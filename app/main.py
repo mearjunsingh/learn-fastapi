@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Response, status, HTTPException, Depends
+from fastapi import FastAPI, status, HTTPException, Depends
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
@@ -14,31 +14,6 @@ class Post(BaseModel):
     title: str
     content: str
     published: bool = False
-
-
-posts_list = [
-    {
-        'title': 'post 1',
-        'content': 'content 1',
-        'published': True,
-        'rating': 5,
-        'id': 1
-    },
-    {
-        'title': 'post 2',
-        'content': 'content 2',
-        'published': False,
-        'rating': None,
-        'id': 2
-    }
-]
-
-
-def validate_id(id):
-    if id <= 0: # because array index starts with 0
-        return None
-    else:
-        return id - 1
 
 
 @app.get('/')
@@ -73,7 +48,7 @@ def read_post(id: int, db: Session = Depends(get_db)):
 def update_post(id: int, data: Post, db: Session = Depends(get_db)):
     post = db.query(models.Post).filter(models.Post.id == id)
     if post.first() == None:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Post Not Found")
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail='Post Not Found')
     post.update(data.dict(), synchronize_session=False)
     db.commit()
     return {'data': post.first()}
@@ -83,15 +58,7 @@ def update_post(id: int, data: Post, db: Session = Depends(get_db)):
 def delete_post(id: int, db: Session = Depends(get_db)):
     post = db.query(models.Post).filter(models.Post.id == id)
     if post.first() == None:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f'post with id {id} not found')
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail='Post Not Found')
     post.delete(synchronize_session=False)
     db.commit()
-    return {'data': f'post with id {id} deleted'}
-
-
-@app.get('/sql')
-def sql(db: Session = Depends(get_db)):
-    temp =db.query(models.Post)
-    db.add(temp)
-    posts = db.query(models.Post).all()
-    return {'data': posts}
+    return {'data': f'Post with id {id} deleted'}
