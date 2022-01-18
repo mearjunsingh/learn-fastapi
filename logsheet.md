@@ -5,6 +5,7 @@
   - [Day 2](#day-2)
   - [Day 3](#day-3)
   - [Day 4](#day-4)
+  - [Day 5](#day-5)
 
 ---
 
@@ -46,3 +47,11 @@
 - [x] Install SQLAlchemy
 - [x] Create a Database Connection
 - [x] Create a Model and Execute it in Database
+
+---
+
+## Day 5
+
+- [x] Default Date in Database Using SQLAlchemy
+- [x] Create Record Using SQLAlchemy
+- [x] Read All Records Using SQLAlchemy

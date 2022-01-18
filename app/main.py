@@ -1,7 +1,6 @@
 from fastapi import FastAPI, Response, status, HTTPException, Depends
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
-from typing import Optional
 
 from . import models
 from .database import engine, get_db
@@ -15,7 +14,6 @@ class Post(BaseModel):
     title: str
     content: str
     published: bool = False
-    rating: Optional[int] = None
 
 
 posts_list = [
@@ -49,16 +47,18 @@ def root():
 
 
 @app.get('/posts')
-def list_posts():
-    return {'data': posts_list}
+def list_posts(db: Session = Depends(get_db)):
+    posts = db.query(models.Post).all()
+    return {'data': posts}
 
 
 @app.post('/posts', status_code=status.HTTP_201_CREATED)
-def create_post(data: Post):
-    data_dict = data.dict()
-    data_dict['id'] = len(posts_list) + 1
-    posts_list.append(data_dict)
-    return {'data': data_dict}
+def create_post(data: Post, db: Session = Depends(get_db)):
+    post = models.Post(**data.dict())
+    db.add(post)
+    db.commit()
+    db.refresh(post)
+    return {'data': post}
 
 
 @app.get('/posts/{id}')
@@ -93,4 +93,7 @@ def delete_post(id: int):
 
 @app.get('/sql')
 def sql(db: Session = Depends(get_db)):
-    return {'status': 'success'}
+    temp =db.query(models.Post)
+    db.add(temp)
+    posts = db.query(models.Post).all()
+    return {'data': posts}

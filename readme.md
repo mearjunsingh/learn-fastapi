@@ -14,6 +14,7 @@ Part of a **100 days of code** challenge. Open [Logsheet](logsheet.md) to see th
 - Python
 - FastAPI
 - Uvicorn
+- SQLAlchemy
 
 ---
 
