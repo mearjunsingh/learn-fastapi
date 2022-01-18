@@ -55,3 +55,4 @@
 - [x] Default Date in Database Using SQLAlchemy
 - [x] Create Record Using SQLAlchemy
 - [x] Read All Records Using SQLAlchemy
+- [x] Read, Update and Delete Single Record Using SQLAlchemy

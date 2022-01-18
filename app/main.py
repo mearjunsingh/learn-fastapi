@@ -62,33 +62,31 @@ def create_post(data: Post, db: Session = Depends(get_db)):
 
 
 @app.get('/posts/{id}')
-def read_post(id: int, response: Response):
-    try:
-        post = posts_list[validate_id(id)]
-        return {'data': post}
-    except:
-        response.status_code = status.HTTP_404_NOT_FOUND
-        return {'detail': f'post with id {id} not found'}
+def read_post(id: int, db: Session = Depends(get_db)):
+    post = db.query(models.Post).filter(models.Post.id == id).first()
+    if not post:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Post Not Found")
+    return {'data': post}
 
 
 @app.put('/posts/{id}', status_code=status.HTTP_202_ACCEPTED)
-def update_post(id: int, data: Post):
-    try:
-        data_dict = data.dict()
-        posts_list[validate_id(id)] = data_dict
-        data_dict['id'] = id
-        return {'data': data_dict}
-    except:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f'post with id {id} not found')
+def update_post(id: int, data: Post, db: Session = Depends(get_db)):
+    post = db.query(models.Post).filter(models.Post.id == id)
+    if post.first() == None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Post Not Found")
+    post.update(data.dict(), synchronize_session=False)
+    db.commit()
+    return {'data': post.first()}
 
 
 @app.delete('/posts/{id}', status_code=status.HTTP_204_NO_CONTENT)
-def delete_post(id: int):
-    try:
-        posts_list[(validate_id(id))] = None
-        return {'data': f'post with id {id} deleted'}
-    except:
+def delete_post(id: int, db: Session = Depends(get_db)):
+    post = db.query(models.Post).filter(models.Post.id == id)
+    if post.first() == None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f'post with id {id} not found')
+    post.delete(synchronize_session=False)
+    db.commit()
+    return {'data': f'post with id {id} deleted'}
 
 
 @app.get('/sql')
