@@ -6,6 +6,7 @@
   - [Day 3](#day-3)
   - [Day 4](#day-4)
   - [Day 5](#day-5)
+  - [Day 6](#day-6)
 
 ---
 
@@ -56,3 +57,11 @@
 - [x] Create Record Using SQLAlchemy
 - [x] Read All Records Using SQLAlchemy
 - [x] Read, Update and Delete Single Record Using SQLAlchemy
+
+---
+
+## Day 6
+
+- [x] Learn About Pydantic Models
+- [x] Learn About Request/Response Schemas
+- [ ] 
