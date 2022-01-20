@@ -11,6 +11,7 @@
   - [Day 8](#day-8)
   - [Day 9](#day-9)
   - [Day 10](#day-10)
+  - [Day 11](#day-11)
 
 ---
 
@@ -104,3 +105,11 @@
 - [x] Verify JWT Access Token
 - [x] Apply Authentication to Crete, Update and Delete Post Endpoints
 - [x] Create and Apply Schemas for Response Token
+
+---
+
+## Day 11
+
+- [x] Learn About Database Relationships
+- [x] Learn About Foreign Keys
+- [x] Create Foreign Key Using SQLAlchemy
