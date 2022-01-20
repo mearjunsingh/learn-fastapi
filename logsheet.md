@@ -94,3 +94,4 @@
 - [x] Learn About JWT Token Authentication in Detail
 - [x] Create Endpoint to Log in User
 - [x] Generate and Response JWT Token
+- [x] Use FastAPI's Default Password Form `OAuth2PasswordRequestForm`
