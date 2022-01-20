@@ -7,6 +7,7 @@
   - [Day 4](#day-4)
   - [Day 5](#day-5)
   - [Day 6](#day-6)
+  - [Day 7](#day-7)
 
 ---
 
@@ -67,3 +68,10 @@
 - [x] Create Users SQLAlchemy Model
 - [x] Create Users Pydantic Schema
 - [x] Build a Create User API
+
+---
+
+## Day 7
+
+- [x] Hash the User's Password While Creating a User
+- [ ] 
