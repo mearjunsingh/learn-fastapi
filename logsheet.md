@@ -74,4 +74,4 @@
 ## Day 7
 
 - [x] Hash the User's Password While Creating a User
-- [ ] 
+- [x] Refactored a Code
