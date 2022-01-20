@@ -5,16 +5,16 @@ from typing import List
 from .. import models, schemas, database
 
 
-router = APIRouter()
+router = APIRouter(prefix='/posts', tags=['Posts'])
 
 
-@router.get('/posts', response_model=List[schemas.Post])
+@router.get('/', response_model=List[schemas.Post])
 def list_posts(db: Session = Depends(database.get_db)):
     posts = db.query(models.Post).all()
     return posts
 
 
-@router.post('/posts', status_code=status.HTTP_201_CREATED, response_model=schemas.Post)
+@router.post('/', status_code=status.HTTP_201_CREATED, response_model=schemas.Post)
 def create_post(data: schemas.PostCreate, db: Session = Depends(database.get_db)):
     post = models.Post(**data.dict())
     db.add(post)
@@ -23,7 +23,7 @@ def create_post(data: schemas.PostCreate, db: Session = Depends(database.get_db)
     return post
 
 
-@router.get('/posts/{id}', response_model=schemas.Post)
+@router.get('/{id}', response_model=schemas.Post)
 def read_post(id: int, db: Session = Depends(database.get_db)):
     post = db.query(models.Post).filter(models.Post.id == id).first()
     if not post:
@@ -31,7 +31,7 @@ def read_post(id: int, db: Session = Depends(database.get_db)):
     return post
 
 
-@router.put('/posts/{id}', status_code=status.HTTP_202_ACCEPTED, response_model=schemas.Post)
+@router.put('/{id}', status_code=status.HTTP_202_ACCEPTED, response_model=schemas.Post)
 def update_post(id: int, data: schemas.PostCreate, db: Session = Depends(database.get_db)):
     post = db.query(models.Post).filter(models.Post.id == id)
     if post.first() == None:
@@ -41,7 +41,7 @@ def update_post(id: int, data: schemas.PostCreate, db: Session = Depends(databas
     return post.first()
 
 
-@router.delete('/posts/{id}', status_code=status.HTTP_204_NO_CONTENT)
+@router.delete('/{id}', status_code=status.HTTP_204_NO_CONTENT)
 def delete_post(id: int, db: Session = Depends(database.get_db)):
     post = db.query(models.Post).filter(models.Post.id == id)
     if post.first() == None:

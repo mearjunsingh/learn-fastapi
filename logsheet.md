@@ -84,3 +84,4 @@
 
 - [x] Learn About APIRouter
 - [x] Refactor Codes Using Router
+- [x] Tags in Router
