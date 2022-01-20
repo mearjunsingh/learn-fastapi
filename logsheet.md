@@ -64,4 +64,6 @@
 
 - [x] Learn About Pydantic Models
 - [x] Learn About Request/Response Schemas
-- [ ] 
+- [x] Create Users SQLAlchemy Model
+- [x] Create Users Pydantic Schema
+- [x] Build a Create User API

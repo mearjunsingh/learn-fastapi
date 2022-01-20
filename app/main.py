@@ -56,3 +56,12 @@ def delete_post(id: int, db: Session = Depends(get_db)):
     post.delete(synchronize_session=False)
     db.commit()
     return {'detail': f'Post with id {id} deleted'}
+
+
+@app.post('/users', status_code=status.HTTP_201_CREATED, response_model=schemas.User)
+def create_user(data: schemas.UserCreate, db: Session = Depends(get_db)):
+    user = models.User(**data.dict())
+    db.add(user)
+    db.commit()
+    db.refresh(user)
+    return user
