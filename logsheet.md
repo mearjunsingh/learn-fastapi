@@ -8,6 +8,7 @@
   - [Day 5](#day-5)
   - [Day 6](#day-6)
   - [Day 7](#day-7)
+  - [Day 8](#day-8)
 
 ---
 
@@ -76,3 +77,10 @@
 - [x] Hash the User's Password While Creating a User
 - [x] Refactored a Code
 - [x] Create Endpoint for Retrieving User by ID
+
+---
+
+## Day 8
+
+- [x] Learn About APIRouter
+- [x] Refactor Codes Using Router
