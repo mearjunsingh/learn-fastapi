@@ -75,3 +75,4 @@
 
 - [x] Hash the User's Password While Creating a User
 - [x] Refactored a Code
+- [x] Create Endpoint for Retrieving User by ID

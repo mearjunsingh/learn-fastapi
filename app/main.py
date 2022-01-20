@@ -30,8 +30,8 @@ def create_post(data: schemas.PostCreate, db: Session = Depends(get_db)):
     return post
 
 
-@app.get('/posts/{id}')
-def read_post(id: int, db: Session = Depends(get_db), response_model=schemas.Post):
+@app.get('/posts/{id}', response_model=schemas.Post)
+def read_post(id: int, db: Session = Depends(get_db)):
     post = db.query(models.Post).filter(models.Post.id == id).first()
     if not post:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Post Not Found")
@@ -66,4 +66,12 @@ def create_user(data: schemas.UserCreate, db: Session = Depends(get_db)):
     db.add(user)
     db.commit()
     db.refresh(user)
+    return user
+
+
+@app.get('/users/{id}', response_model=schemas.User)
+def get_user(id: int, db: Session = Depends(get_db)):
+    user = db.query(models.User).filter(models.User.id == id).first()
+    if not user:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User Not Found")
     return user
