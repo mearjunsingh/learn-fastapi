@@ -27,7 +27,7 @@ def get_user(id: int, db: Session = Depends(database.get_db)):
     return user
 
 
-@router.post('/login')
+@router.post('/login', response_model=schemas.Token)
 def login_user(data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(database.get_db)):
     user = db.query(models.User).filter(models.User.email == data.username).first()
     if not user:

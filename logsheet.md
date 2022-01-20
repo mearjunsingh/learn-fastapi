@@ -10,6 +10,7 @@
   - [Day 7](#day-7)
   - [Day 8](#day-8)
   - [Day 9](#day-9)
+  - [Day 10](#day-10)
 
 ---
 
@@ -95,3 +96,11 @@
 - [x] Create Endpoint to Log in User
 - [x] Generate and Response JWT Token
 - [x] Use FastAPI's Default Password Form `OAuth2PasswordRequestForm`
+
+---
+
+## Day 10
+
+- [x] Verify JWT Access Token
+- [x] Apply Authentication to Crete, Update and Delete Post Endpoints
+- [x] Create and Apply Schemas for Response Token
