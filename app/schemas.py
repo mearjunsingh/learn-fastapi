@@ -5,14 +5,16 @@ from typing import Optional
 class PostBase(BaseModel):
     title: str
     content: str
+    published: bool = False
 
 
 class PostCreate(PostBase):
-    published: bool = False
+    pass
 
 
 class Post(PostBase):
     id: int
+    user_id: int
 
     class Config:
         orm_mode = True

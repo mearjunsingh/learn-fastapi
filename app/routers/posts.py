@@ -16,7 +16,7 @@ def list_posts(db: Session = Depends(database.get_db)):
 
 @router.post('/', status_code=status.HTTP_201_CREATED, response_model=schemas.Post)
 def create_post(data: schemas.PostCreate, db: Session = Depends(database.get_db), current_user: int = Depends(oauth2.get_current_user)):
-    post = models.Post(**data.dict())
+    post = models.Post(user_id = current_user.id, **data.dict())
     db.add(post)
     db.commit()
     db.refresh(post)
@@ -36,6 +36,8 @@ def update_post(id: int, data: schemas.PostCreate, db: Session = Depends(databas
     post = db.query(models.Post).filter(models.Post.id == id)
     if post.first() == None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail='Post Not Found')
+    if post.first().user_id != current_user.id:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail='Permission Denied')
     post.update(data.dict(), synchronize_session=False)
     db.commit()
     return post.first()
@@ -46,6 +48,8 @@ def delete_post(id: int, db: Session = Depends(database.get_db), current_user: i
     post = db.query(models.Post).filter(models.Post.id == id)
     if post.first() == None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail='Post Not Found')
+    if post.first().user_id != current_user.id:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail='Permission Denied')
     post.delete(synchronize_session=False)
     db.commit()
     return {'detail': f'Post with id {id} deleted'}

@@ -113,3 +113,4 @@
 - [x] Learn About Database Relationships
 - [x] Learn About Foreign Keys
 - [x] Create Foreign Key Using SQLAlchemy
+- [x] Manage Permissions For Different Users
