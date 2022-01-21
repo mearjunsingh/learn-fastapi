@@ -14,6 +14,7 @@
   - [Day 11](#day-11)
   - [Day 12](#day-12)
   - [Day 13](#day-13)
+  - [Day 14](#day-14)
 
 ---
 
@@ -133,3 +134,11 @@
 - [x] Learn About Environment Variables and How to Set/Access Them
 - [x] Validate Environment Variables Using Pydantic's `BaseSettings`
 - [x] Use Environment Variables Instead of Hardcoded Values
+
+---
+
+## Day 14
+
+- [x] Create Model for Vote
+- [ ] Create Schemas for Vote
+- [x] Create Endpoints for Vote

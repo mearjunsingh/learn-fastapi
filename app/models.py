@@ -21,3 +21,10 @@ class User(Base):
     id = Column(Integer, primary_key=True, nullable=False)
     email = Column(String, nullable=False, unique=True)
     password = Column(String, nullable=False)
+
+
+class Vote(Base):
+    __tablename__ = 'vote'
+
+    user_id = Column(Integer, ForeignKey('user.id', ondelete='CASCADE'), primary_key=True)
+    post_id = Column(Integer, ForeignKey('post.id', ondelete='CASCADE'), primary_key=True)
