@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
+from sqlalchemy.orm import relationship
 from .database import Base
 
 
@@ -10,6 +11,8 @@ class Post(Base):
     content = Column(String, nullable=False)
     published = Column(Boolean, server_default='FALSE', nullable=False)
     user_id = Column(Integer, ForeignKey('user.id', ondelete='CASCADE'), nullable=False)
+
+    user = relationship("User")
 
 
 class User(Base):

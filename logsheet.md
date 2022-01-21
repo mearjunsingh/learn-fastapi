@@ -12,6 +12,7 @@
   - [Day 9](#day-9)
   - [Day 10](#day-10)
   - [Day 11](#day-11)
+  - [Day 12](#day-12)
 
 ---
 
@@ -114,3 +115,10 @@
 - [x] Learn About Foreign Keys
 - [x] Create Foreign Key Using SQLAlchemy
 - [x] Manage Permissions For Different Users
+
+---
+
+## Day 12
+
+- [x] Added Arbitary Field Using SQLAlchemy Relationship
+- [x] Learn About Query Parameters
