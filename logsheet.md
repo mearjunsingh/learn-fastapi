@@ -140,5 +140,6 @@
 ## Day 14
 
 - [x] Create Model for Vote
-- [ ] Create Schemas for Vote
+- [x] Create Schemas for Vote
 - [x] Create Endpoints for Vote
+- [x] Return Vote Count While Responding Post

@@ -35,6 +35,11 @@ class Post(PostBase):
         orm_mode = True
 
 
+class PostOut(BaseModel):
+    Post: Post
+    votes: int
+
+
 class Token(BaseModel):
     access_token: str
     token_type: str
