@@ -9,15 +9,6 @@ Part of a **100 days of code** challenge. Open [Logsheet](logsheet.md) to see th
 
 ---
 
-## Tech Stack
-
-- Python
-- FastAPI
-- Uvicorn
-- SQLAlchemy
-
----
-
 ## Usage
 
 1. First, clone this project *(git must be installed)*,
@@ -51,12 +42,21 @@ Part of a **100 days of code** challenge. Open [Logsheet](logsheet.md) to see th
     pip install -r requirements.txt
     ```
 
-6. Now we are ready to run the project,
+6. Create `.env` file in root folder with following content,
+   ```
+   DATABASE_NAME = ##
+   SECRET_KEY = ##
+   JWT_ALGORITHM = ##
+   TOKEN_EXPIRES_IN = ##
+   ```
+   *Replace `##` with own values.*
+
+7. Now we are ready to run the project,
     ```bash
     uvicorn app.main:app --reload
     ```
 
-7. Then locate http://127.0.0.1:8000/docs in browser for **SwaggerAPI** documentation or http://127.0.0.1:8000/redoc for **ReDoc** documentation.
+8. Then locate http://127.0.0.1:8000/docs in browser for **SwaggerAPI** documentation or http://127.0.0.1:8000/redoc for **ReDoc** documentation.
 
 ---
 

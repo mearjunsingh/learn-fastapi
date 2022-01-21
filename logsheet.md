@@ -132,4 +132,4 @@
 
 - [x] Learn About Environment Variables and How to Set/Access Them
 - [x] Validate Environment Variables Using Pydantic's `BaseSettings`
-- [ ] 
+- [x] Use Environment Variables Instead of Hardcoded Values
