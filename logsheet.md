@@ -16,6 +16,7 @@
   - [Day 13](#day-13)
   - [Day 14](#day-14)
   - [Day 15](#day-15)
+  - [Day 16](#day-16)
 
 ---
 
@@ -154,3 +155,12 @@
 - [x] Initialize Alembic and Change Required Configs
 - [x] Create and Write Revisions
 - [x] Upgrade and Downgrade Revisions
+
+---
+
+## Day 16
+
+- [x] Learn About CORS
+- [x] Change CORS Policy in APP
+- [x] Learn About Git an GitHub
+- [x] Learn to Create `.gitignore` and `requirements.txt`
