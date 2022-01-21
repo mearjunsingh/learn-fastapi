@@ -5,11 +5,12 @@ from datetime import datetime, timedelta
 from sqlalchemy.orm import Session
 
 from . import schemas, database, models
+from .config import setting
 
 
-SECRET_KEY = 'unsecured-secret-key'
-ALGORITHM = 'HS256'
-TOKEN_VALIDITY = 30
+SECRET_KEY = setting.secret_key
+ALGORITHM = setting.jwt_algorithm
+TOKEN_VALIDITY = setting.token_expires_in
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl='users/login')
 

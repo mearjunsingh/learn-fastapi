@@ -13,6 +13,7 @@
   - [Day 10](#day-10)
   - [Day 11](#day-11)
   - [Day 12](#day-12)
+  - [Day 13](#day-13)
 
 ---
 
@@ -124,3 +125,11 @@
 - [x] Learn About Query Parameters
 - [x] Add Query Parameters to Path
 - [x] Use Limit, Offset and Contains in SQLAlchemy to Filter Records
+
+---
+
+## Day 13
+
+- [x] Learn About Environment Variables and How to Set/Access Them
+- [x] Validate Environment Variables Using Pydantic's `BaseSettings`
+- [ ] 

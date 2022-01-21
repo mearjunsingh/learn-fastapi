@@ -2,8 +2,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
+from .config import setting
 
-SQLALCHEMY_DATABASE_URL = 'sqlite:///./db.sqlite3'
+
+SQLALCHEMY_DATABASE_URL = f'sqlite:///./{setting.database_name}'
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
