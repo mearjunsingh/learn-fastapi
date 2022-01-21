@@ -15,6 +15,7 @@
   - [Day 12](#day-12)
   - [Day 13](#day-13)
   - [Day 14](#day-14)
+  - [Day 15](#day-15)
 
 ---
 
@@ -143,3 +144,13 @@
 - [x] Create Schemas for Vote
 - [x] Create Endpoints for Vote
 - [x] Return Vote Count While Responding Post
+
+---
+
+## Day 15
+
+- [x] Learn About Database Migrations
+- [x] Install Alembic
+- [x] Initialize Alembic and Change Required Configs
+- [x] Create and Write Revisions
+- [x] Upgrade and Downgrade Revisions
