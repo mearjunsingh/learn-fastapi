@@ -122,3 +122,5 @@
 
 - [x] Added Arbitary Field Using SQLAlchemy Relationship
 - [x] Learn About Query Parameters
+- [x] Add Query Parameters to Path
+- [x] Use Limit, Offset and Contains in SQLAlchemy to Filter Records
