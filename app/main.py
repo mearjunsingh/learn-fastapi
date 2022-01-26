@@ -12,7 +12,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins = ['*'],
     allow_credentials = True,
-    alow_methods = ['*'],
+    allow_methods = ['*'],
     allow_headers = ['*']
 )
 

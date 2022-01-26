@@ -17,6 +17,7 @@
   - [Day 14](#day-14)
   - [Day 15](#day-15)
   - [Day 16](#day-16)
+  - [Day 17](#day-17)
 
 ---
 
@@ -164,3 +165,13 @@
 - [x] Change CORS Policy in APP
 - [x] Learn About Git an GitHub
 - [x] Learn to Create `.gitignore` and `requirements.txt`
+
+---
+
+## Day 17
+
+- [x] Learn About Testing
+- [x] Install Pytest
+- [x] Learn About Module and File Naming Rules for Pytest
+- [x] Created First Python Test
+- [x] Learned About Parameterized Tests
