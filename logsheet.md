@@ -175,3 +175,4 @@
 - [x] Learn About Module and File Naming Rules for Pytest
 - [x] Created First Python Test
 - [x] Learned About Parameterized Tests
+- [x] Learn About Pytest Fixtures

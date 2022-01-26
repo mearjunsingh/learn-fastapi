@@ -51,7 +51,12 @@ Part of a **100 days of code** challenge. Open [Logsheet](logsheet.md) to see th
    ```
    *Replace `##` with own values.*
 
-7. Now we are ready to run the project,
+7. Run all the tests,
+    ```bash
+    pytest
+    ```
+
+8. Now we are ready to run the project,
     ```bash
     uvicorn app.main:app --reload
     ```
